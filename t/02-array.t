@@ -1,6 +1,5 @@
 use Test::More;
 use Tie::Redis::Candy qw(redis_array);
-use Data::Dumper;
 use t::Redis;
  
 test_redis(sub {
@@ -11,7 +10,7 @@ test_redis(sub {
     
     push @$A => 4, 5, 6;
     
-    is_deeply($A => [qw[ 1 2 3 4 5 6 ]]) or diag Dumper($A);
+    is_deeply($A => [qw[ 1 2 3 4 5 6 ]]);
     
     @$A = ();
 });

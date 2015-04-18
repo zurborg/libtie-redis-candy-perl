@@ -10,6 +10,7 @@ Revision history for Tie-Redis-Candy
 
  [ENHANCEMENTS]
  - change license
+ - cleanup test
 
 0.001 2015-04-18
  - Initial release
