@@ -1,0 +1,12 @@
+daemonize no
+pidfile /tmp/libtie-redis-candy-perl_redis__PORT__.pid
+port __PORT__
+timeout 10
+save 900 1
+save 300 10
+save 60 10000
+dbfilename dump.rdb
+dir __DIR__
+loglevel debug
+logfile stdout
+databases 1
