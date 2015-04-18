@@ -5,6 +5,7 @@ Revision history for Tie-Redis-Candy
  [API CHANGES]
 
  [BUG FIXES]
+ - fix dependancy problem
 
  [DOCUMENTATION]
 

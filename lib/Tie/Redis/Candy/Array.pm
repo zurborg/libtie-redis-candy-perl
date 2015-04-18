@@ -12,7 +12,7 @@ use strict;
 use warnings;
 use Carp;
 use CBOR::XS qw(encode_cbor decode_cbor);
-use base qw/Tie::Array/;
+use base 'Tie::Array';
 
 # VERSION
 

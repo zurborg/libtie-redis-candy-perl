@@ -10,9 +10,9 @@ package Tie::Redis::Candy::Hash;
 
 use strict;
 use warnings;
-use Tie::Hash;
+use Carp;
 use CBOR::XS qw(encode_cbor decode_cbor);
-use base 'Tie::StdHash';
+use base 'Tie::Hash';
 
 # VERSION
 
