@@ -2,16 +2,14 @@ Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
 
+0.002 2015-04-18
  [API CHANGES]
 
  [BUG FIXES]
- - fix dependancy problem
 
  [DOCUMENTATION]
 
  [ENHANCEMENTS]
- - change license
- - cleanup test
 
 0.001 2015-04-18
  - Initial release
