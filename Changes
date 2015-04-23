@@ -1,9 +1,10 @@
 Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
+
+0.003 2015-04-23
  - Fix prerequirements
 
-0.002 2015-04-18
  [API CHANGES]
 
  [BUG FIXES]
@@ -11,6 +12,8 @@ Revision history for Tie-Redis-Candy
  [DOCUMENTATION]
 
  [ENHANCEMENTS]
+
+0.002 2015-04-18
 
 0.001 2015-04-18
  - Initial release
