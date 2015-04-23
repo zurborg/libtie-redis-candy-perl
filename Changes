@@ -1,6 +1,7 @@
 Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
+ - Fix prerequirements
 
 0.002 2015-04-18
  [API CHANGES]
