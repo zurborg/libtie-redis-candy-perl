@@ -1,6 +1,7 @@
 Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
+ - Fix undef bug
 
 0.003 2015-04-23
  - Fix prerequirements
