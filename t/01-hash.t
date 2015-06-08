@@ -4,7 +4,7 @@ use t::Redis;
  
 test_redis(sub {
     my ($redis) = @_;
-    plan tests => 5;
+    plan tests => 6;
     
     my $W = redis_hash($redis, 'H', init_W => 'x', foo => 1);
     my $R = redis_hash($redis, 'H', init_R => 'y', foo => 2);
@@ -14,7 +14,9 @@ test_redis(sub {
     
     ok $W->{hash} = { a => 16 };
     is $R->{hash}->{a}, 16;
-    
+
+    is $R->{nonexistent} => undef;
+
     is_deeply $R => {
         scalar => 42,
         hash => { a => 16 },

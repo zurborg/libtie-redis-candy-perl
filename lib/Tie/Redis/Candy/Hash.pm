@@ -68,7 +68,9 @@ sub STORE {
 
 sub FETCH {
     my ($self, $key) = @_;
-    decode_cbor($self->{redis}->get($self->{prefix} . $key));
+    my $data = $self->{redis}->get($self->{prefix} . $key);
+    return unless defined $data;
+    decode_cbor($data);
 }
 
 sub FIRSTKEY {

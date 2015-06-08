@@ -52,7 +52,9 @@ sub TIEARRAY {
 
 sub FETCH {
     my ($self, $index) = @_;
-    decode_cbor($self->{redis}->lindex($self->{list}, $index));
+    my $data = $self->{redis}->lindex($self->{list}, $index);
+    return unless defined $data;
+    decode_cbor($data);
 }
 
 sub FETCHSIZE {
@@ -82,12 +84,12 @@ sub PUSH {
 
 sub POP {
     my ($self) = @_;
-    map { decode_cbor($_) } $self->{redis}->rpop($self->{list});
+    map { defined ($_) ? decode_cbor($_) : undef } $self->{redis}->rpop($self->{list});
 }
 
 sub SHIFT {
     my ($self) = @_;
-    map { decode_cbor($_) } $self->{redis}->lpop($self->{list});
+    map { defined ($_) ? decode_cbor($_) : undef } $self->{redis}->lpop($self->{list});
 }
 
 sub UNSHIFT {
