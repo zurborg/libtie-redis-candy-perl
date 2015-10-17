@@ -102,8 +102,6 @@ sub SPLICE {
 }
 
 sub EXTEND {
-    my ($self, $count) = @_;
-    $self->{redis}->rpush($self->{list}, '') for ($self->FETCHSIZE .. ($count - 1));
 }
 
 sub DESTROY {
