@@ -93,8 +93,8 @@ sub SHIFT {
 }
 
 sub UNSHIFT {
-    my ($self, @values) = shift;
-    $self->{redis}->lpush($self->{list}, encode_cbor($_)) for @values;
+    my ($self, @values) = @_;
+    $self->{redis}->lpush($self->{list}, encode_cbor($_)) for reverse @values;
 }
 
 sub SPLICE {

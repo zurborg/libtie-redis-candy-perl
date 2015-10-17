@@ -54,7 +54,7 @@ sub TIEHASH {
     $prefix = $prefix ? $prefix.':' : '';
 
     my $self = {
-        prefix => $prefix,
+        key => $prefix,
         redis => $redis,
     };
 
