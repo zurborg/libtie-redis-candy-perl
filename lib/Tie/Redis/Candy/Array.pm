@@ -4,12 +4,12 @@
 #
 # Copyright (c) 2015 by Pedro Melo, Damien Krotkine.
 
+use strictures 2;
+
 package Tie::Redis::Candy::Array;
 
 # ABSTRACT: tie Perl arrays to Redis lists - the candy way
 
-use strict;
-use warnings;
 use Carp qw(croak confess);
 use CBOR::XS qw(encode_cbor decode_cbor);
 use base 'Tie::Array';

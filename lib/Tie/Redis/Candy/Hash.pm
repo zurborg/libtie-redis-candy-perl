@@ -4,12 +4,12 @@
 #
 # Copyright (c) 2015 by Pedro Melo, Damien Krotkine.
 
+use strictures 2;
+
 package Tie::Redis::Candy::Hash;
 
 # ABSTRACT: tie Perl hashes to Redis hashes - the candy way
 
-use strict;
-use warnings;
 use Carp qw(croak);
 use CBOR::XS qw(encode_cbor decode_cbor);
 use base 'Tie::Hash';

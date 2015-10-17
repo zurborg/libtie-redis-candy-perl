@@ -1,9 +1,9 @@
+use strictures 2;
+
 package Tie::Redis::Candy;
 
 # ABSTRACT: Tie Redis to HashRef or ArrayRef
 
-use strict;
-use warnings;
 use Redis;
 use Tie::Redis::Candy::Hash;
 use Tie::Redis::Candy::Array;
