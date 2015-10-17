@@ -1,18 +1,17 @@
 Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
+
+1.000 2015-10-17
  [API CHANGES]
-   - use redis hash commands
-   - splice is now unsupported
+ - use redis hash commands
+ - splice is now unsupported
 
  [BUG FIXES]
-   - unshift array fixed
-
- [DOCUMENTATION]
+ - unshift array fixed
 
  [ENHANCEMENTS]
-   - tests now use Test::Mock::Redis
-
+ - tests now use Test::Mock::Redis
 
 0.004 2015-06-08
  - Fix undef bug
@@ -26,4 +25,3 @@ Revision history for Tie-Redis-Candy
  - Initial release
 
 0.000 0000-00-00
-
