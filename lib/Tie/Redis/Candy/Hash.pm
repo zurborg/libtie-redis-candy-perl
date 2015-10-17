@@ -63,47 +63,41 @@ sub TIEHASH {
 
 sub STORE {
     my ($self, $key, $value) = @_;
-    $self->{redis}->set($self->{prefix} . $key, encode_cbor($value));
+    $self->{redis}->hset($self->{key}, $key, encode_cbor($value));
 }
 
 sub FETCH {
     my ($self, $key) = @_;
-    my $data = $self->{redis}->get($self->{prefix} . $key);
+    my $data = $self->{redis}->hget($self->{key}, $key);
     return unless defined $data;
     decode_cbor($data);
 }
 
 sub FIRSTKEY {
     my $self = shift;
-    $self->{prefix_keys} = [ $self->{redis}->keys($self->{prefix} . '*') ];
+    $self->{keys} = [ $self->{redis}->hkeys($self->{key}) ];
     $self->NEXTKEY;
 }
 
 sub NEXTKEY {
     my $self = shift;
-    
-    my $key = shift @{ $self->{prefix_keys} };
-    return unless defined $key;
-    
-    my $p = quotemeta $self->{prefix};
-    $key =~ s/^$p// if $p;
-    return $key;
+    shift @{ $self->{keys} };
 }
 
 sub EXISTS {
     my ($self, $key) = @_;
-    $self->{redis}->exists($self->{prefix} . $key);
+    $self->{redis}->hexists($self->{key}, $key);
 }
 
 sub DELETE {
     my ($self, $key) = @_;
-    $self->{redis}->del($self->{prefix} . $key);
+    $self->{redis}->hdel($self->{key}, $key);
 }
 
 sub CLEAR {
     my ($self) = @_;
-    $self->{redis}->del($_) for $self->{redis}->keys($self->{prefix} . '*');
-    $self->{prefix_keys} = [];
+    $self->{redis}->del($self->{key});
+    delete $self->{keys};
 }
 
 =head1 HISTORY
