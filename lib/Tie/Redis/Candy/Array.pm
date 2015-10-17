@@ -14,6 +14,8 @@ use Carp;
 use CBOR::XS qw(encode_cbor decode_cbor);
 use base 'Tie::Array';
 
+my $undef = encode_cbor(undef);
+
 # VERSION
 
 =head1 SYNOPSYS
