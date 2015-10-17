@@ -4,6 +4,7 @@ package Tie::Redis::Candy;
 
 use strict;
 use warnings;
+use Redis;
 use Tie::Redis::Candy::Hash;
 use Tie::Redis::Candy::Array;
 use Exporter qw(import);
