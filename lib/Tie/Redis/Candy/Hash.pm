@@ -10,7 +10,7 @@ package Tie::Redis::Candy::Hash;
 
 use strict;
 use warnings;
-use Carp;
+use Carp qw(croak);
 use CBOR::XS qw(encode_cbor decode_cbor);
 use base 'Tie::Hash';
 
@@ -47,14 +47,12 @@ Future versions will also allow you to use real Redis hash structures.
 =cut
 
 sub TIEHASH {
-    my ($class, $redis, $prefix) = @_;
-    
-    die "whaa: $redis" unless ref $redis eq 'Redis';
-    
-    $prefix = $prefix ? $prefix.':' : '';
+    my ($class, $redis, $key) = @_;
+
+    croak "not a Redis instance: $redis" unless ref ($redis) =~ m{^(?:Test::Mock::)?Redis$};
 
     my $self = {
-        key => $prefix,
+        key => $key,
         redis => $redis,
     };
 

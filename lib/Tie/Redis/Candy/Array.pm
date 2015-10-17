@@ -10,7 +10,7 @@ package Tie::Redis::Candy::Array;
 
 use strict;
 use warnings;
-use Carp;
+use Carp qw(croak confess);
 use CBOR::XS qw(encode_cbor decode_cbor);
 use base 'Tie::Array';
 
@@ -43,7 +43,9 @@ my $undef = encode_cbor(undef);
 
 sub TIEARRAY {
     my ($class, $redis, $listname) = @_;
-    
+
+    croak "not a Redis instance: $redis" unless ref ($redis) =~ m{^(?:Test::Mock::)?Redis$};
+
     my $self = {
         list => $listname,
         redis => $redis,
