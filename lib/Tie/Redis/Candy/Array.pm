@@ -98,9 +98,7 @@ sub UNSHIFT {
 }
 
 sub SPLICE {
-    my ($self, $offset, $length) = @_;
-    confess "cannot replace elements in list (unimplemented)" if @_ > 3;
-    $self->lrange($self->{list}, $offset, $length);
+    confess 'UNIMPLEMENTED';
 }
 
 sub EXTEND {
