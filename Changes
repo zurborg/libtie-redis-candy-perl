@@ -1,6 +1,8 @@
 Revision history for Tie-Redis-Candy
 
 {{$NEXT}}
+
+1.001 2015-10-18
  - fix dependencies
  - use strictures
  - remove obsolete redis conf
